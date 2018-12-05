@@ -33,8 +33,10 @@ rows=`$libs/ingest.sh 2>&1`
 log "Added $rows urls to the database"
 
 # Send to discord
-rows=`$libs/discord.sh 2>&1`
-log "Sent $rows urls to discord"
+if [ "$discord" == "on" ]; then
+  rows=`$libs/discord.sh 2>&1`
+  log "Sent $rows urls to discord"
+fi
 
 # Clean up processed logs
 $libs/cleanup_logs.sh
