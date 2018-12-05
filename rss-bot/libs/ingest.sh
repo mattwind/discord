@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source conf/config
+source conf/config $1 $2
 
 added=0
 dups=0
@@ -10,7 +10,6 @@ do
 	filename=$(basename -- "$item")
 	extension="${filename##*.}"
 	filename="${filename%.*}"
-
 	# stuff logs into the db
 	while IFS=' ' read datetime url; do
     sql=`./$libs/db_crud.sh new "$datetime" "$url" 2>&1`
@@ -20,7 +19,7 @@ do
       added=$((added+1))
     fi
 	done < $item
-
   mv $logs/$filename.$extension $logs/$filename.processed
-
 done
+
+echo $added
