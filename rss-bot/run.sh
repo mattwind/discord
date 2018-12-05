@@ -10,8 +10,8 @@ fi
 source conf/config
 
 mkdir -p $logs
-echo "$rightnow - Bot Started" >> $logs/run.log
 
+log "$rightnow - Bot Started"
 debug "Debug $debug"
 debug "Webhook set to $2"
 
@@ -31,12 +31,11 @@ done < $feeds
 
 # Injest logs into db
 $libs/ingest.sh
-
 # Send to discord
 $libs/discord.sh
-
 # Clean up processed logs
 $libs/cleanup_logs.sh
 
-echo "$rightnow - Bot Ended" >> $logs/run.log
+debug "Finished."
+log "$rightnow - Bot Ended" 
 

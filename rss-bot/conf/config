@@ -15,6 +15,10 @@ log_filename="$rightnow.new"
 
 debug() {
   if [ "$debug" == "TRUE" ]; then
-    echo $1
+    echo "$1"
   fi
+}
+
+log() {
+  echo "$1" >> $logs/run.log
 }

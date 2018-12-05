@@ -21,8 +21,6 @@ do
     fi
 	done < $item
 
-  debug "Marking log file processed."
-  debug "$added added to db and $dups skipped."
   mv $logs/$filename.$extension $logs/$filename.processed
 
 done
