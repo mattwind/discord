@@ -1,7 +1,7 @@
 #!/bin/bash
 
-webhook="$1"
-debug="FALSE"
+debug="$1"
+webhook="$2"
 feeds="./feeds.txt"
 logs="./logs"
 libs="./libs"

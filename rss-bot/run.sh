@@ -11,7 +11,9 @@ source conf/config
 
 mkdir -p $logs
 echo "$rightnow - Bot Started" >> $logs/run.log
-debug "Webhook set to $1"
+
+debug "Debug $debug"
+debug "Webhook set to $2"
 
 # Create database
 if [ ! -f $db_file ]; then

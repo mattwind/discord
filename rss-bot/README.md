@@ -21,4 +21,6 @@ CREATE TABLE IF NOT EXISTS "urls" (
 
 ## Crontab
 
-`*/5 * * * * ~/github/discord/rss-bot/run.sh WEBHOOK_URL`
+Run command takes two parameters, TRUE or FALSE and WEBHOOK_URL
+
+`*/5 * * * * ~/github/discord/rss-bot/run.sh FALSE WEBHOOK_URL`
