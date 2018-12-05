@@ -5,7 +5,10 @@ xmlgetnext () {
    read -d '<' TAG VALUE
 }
 
-cat $1 | while xmlgetnext ; do
+wid=$1
+name=$2
+
+cat $3 | while xmlgetnext ; do
    case $TAG in
       'item')
          title=''
@@ -30,7 +33,7 @@ cat $1 | while xmlgetnext ; do
          ;;
       '/item')
          cat<<EOF
-$datetime $link
+$wid $datetime $link
 EOF
          ;;
       esac

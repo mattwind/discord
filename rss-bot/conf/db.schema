@@ -1,6 +1,18 @@
+CREATE TABLE IF NOT EXISTS "webhooks" (
+        `id`    INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+        `channel`       TEXT,
+        `url`   TEXT
+);
 CREATE TABLE IF NOT EXISTS "urls" (
         `md5sum`        TEXT NOT NULL UNIQUE,
+        `wid`   INTEGER,
         `datetime`      TEXT,
         `status`        TEXT NOT NULL DEFAULT 'new',
+        `url`   TEXT
+);
+CREATE TABLE IF NOT EXISTS "feeds" (
+        `id`    INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+        `wid`   INTEGER,
+        `name`  TEXT,
         `url`   TEXT
 );

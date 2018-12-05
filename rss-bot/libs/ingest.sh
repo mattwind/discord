@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source conf/config $1 $2
+source conf/config 
 
 added=0
 dups=0
@@ -11,8 +11,8 @@ do
 	extension="${filename##*.}"
 	filename="${filename%.*}"
 	# stuff logs into the db
-	while IFS=' ' read datetime url; do
-    sql=`./$libs/db_crud.sh new "$datetime" "$url" 2>&1`
+	while IFS=' ' read wid datetime url; do
+    sql=`./$libs/db_crud.sh new "$wid" "$datetime" "$url" 2>&1`
     if [ "$sql" == "Error: UNIQUE constraint failed: urls.md5sum" ]; then
       dups=$((dups+1))
     else

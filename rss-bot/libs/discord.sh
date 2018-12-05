@@ -1,20 +1,19 @@
 #!/bin/bash
 
-source conf/config $1 $2
+source conf/config
 
-# Create array of hahses that need processed
-md5hashes=(`./$libs/db_crud.sh queued 2>&1`)
 count=0
+sql=$( $libs/db_crud.sh queued )
 
-for hash in "${md5hashes[@]}"
+while IFS="|" read -r wid md5sum url 
 do
-  url=`./$libs/db_crud.sh getUrl "$hash" 2>&1`
+  webhook=`./$libs/db_crud.sh getWebhook "$wid" 2>&1`
 	# send to discord
 	postDataJson="{\"username\":\"$botname\",\"content\":\"$url\"}"
   curl -s -H "Content-Type: application/json" -X POST -d ${postDataJson} $webhook
 	# update db status
-	sql=`./$libs/db_crud.sh processed "$hash" 2>&1`
+	update=`./$libs/db_crud.sh processed "$md5sum" 2>&1`
   count=$((count+1))
-done
+done <<< $sql
 
 echo $count

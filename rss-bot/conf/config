@@ -1,9 +1,6 @@
 #!/bin/bash
 
-debug="$1"
-webhook="$2"
-botname="spidey-bot"
-feeds="./feeds.txt"
+botname="rss-bot"
 logs="./logs"
 libs="./libs"
 db_file="./urls.db"
@@ -16,7 +13,5 @@ log_filename="$rightnow.new"
 # I should put this in it's own lib
 
 log() {
-  if [ "$debug" == "TRUE" ]; then
-    echo "$rightnow - [$botname] $1" >> $logs/debug.log
-  fi
+  echo "$rightnow - [$botname] $1" >> $logs/debug.log
 }

@@ -22,17 +22,18 @@ fi
 
 # Download feeds
 log "Downloading feed data"
-while IFS=" " read -r name url
+sql=$( $libs/db_crud.sh getFeeds ) 
+while IFS="|" read -r wid url
 do
-  $libs/parse.sh <<< $(wget -qO- $url) >> $logs/$log_filename
-done < $feeds
+  $libs/parse.sh $wid <<< $(wget -qO- $url) >> $logs/$log_filename
+done <<< "$sql"
 
 # Injest logs into db
-rows=`$libs/ingest.sh $debug $webhook 2>&1`
+rows=`$libs/ingest.sh 2>&1`
 log "Added $rows urls to the database"
 
 # Send to discord
-rows=`$libs/discord.sh $debug $webhook 2>&1`
+rows=`$libs/discord.sh 2>&1`
 log "Sent $rows urls to discord"
 
 # Clean up processed logs
