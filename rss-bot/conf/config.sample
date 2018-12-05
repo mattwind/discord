@@ -1,4 +1,4 @@
 #!/bin/bash
 
-discord="on"
+discord="off"
 botname="rss-bot"
