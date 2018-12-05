@@ -17,6 +17,6 @@ Run bot with discord off, this will sync the db before flooding discord. After t
 
 ## Crontab
 
-Add this crontab entry to the run script and pass debug TRUE or FALSE and WEBHOOK_URL
+Add this crontab entry to the run script on a schedule.
 
 `*/5 * * * * ~/github/discord/rss-bot/run.sh`
