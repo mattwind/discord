@@ -2,6 +2,7 @@
 
 debug="$1"
 webhook="$2"
+botname="spidey-bot"
 feeds="./feeds.txt"
 logs="./logs"
 libs="./libs"

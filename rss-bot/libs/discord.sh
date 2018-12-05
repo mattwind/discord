@@ -9,7 +9,7 @@ for hash in "${md5hashes[@]}"
 do
   url=`./$libs/db_crud.sh getUrl "$hash" 2>&1`
 	# send to discord
-	postDataJson="{\"username\":\"spidey-bot\",\"content\":\"$url\"}"
+	postDataJson="{\"username\":\"$botname\",\"content\":\"$url\"}"
   curl -H "Content-Type: application/json" \
     -X POST \
 	  -d ${postDataJson} "$webhook"
