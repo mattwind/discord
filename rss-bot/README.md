@@ -4,7 +4,7 @@ This is work in progress.
 
 ## Feeds
 
-Add the feed url to the `feeds.txt` file.
+Add your feed urls to the `feeds.txt` file.
 
 ## Dependences 
 
@@ -21,6 +21,6 @@ CREATE TABLE IF NOT EXISTS "urls" (
 
 ## Crontab
 
-Run command takes two parameters, TRUE or FALSE and WEBHOOK_URL
+Add this crontab entry to the run script and pass debug TRUE or FALSE and WEBHOOK_URL
 
 `*/5 * * * * ~/github/discord/rss-bot/run.sh FALSE WEBHOOK_URL`
