@@ -2,4 +2,4 @@
 *.log
 ./logs/*
 webhook
-./config/config
+./conf/config
