@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source conf/config 
+source conf/globals
 
 added=0
 dups=0

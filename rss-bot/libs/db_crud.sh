@@ -4,6 +4,7 @@
 #
 
 source conf/config
+source conf/globals
 
 case $1 in
   'new')

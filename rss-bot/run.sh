@@ -8,6 +8,7 @@ if [ "$curr_folder" != "$proj_folder" ]; then
 fi
 
 source conf/config
+source conf/globals
 
 mkdir -p $logs
 

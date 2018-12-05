@@ -2,17 +2,3 @@
 
 discord="on"
 botname="rss-bot"
-logs="./logs"
-libs="./libs"
-db_file="./urls.db"
-db="urls"
-schema="./conf/db.schema"
-rightnow=`date -d "today" +"%Y%m%d%H%M"`
-log_filename="$rightnow.new"
-
-# Helper function for main run script
-# I should put this in it's own lib
-
-log() {
-  echo "$rightnow - [$botname] $1" >> $logs/debug.log
-}

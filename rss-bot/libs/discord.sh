@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source conf/config
+source conf/globals
 
 count=0
 sql=$( $libs/db_crud.sh queued )

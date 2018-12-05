@@ -1,5 +1,6 @@
 #!/bin/bash
 
-logs="./logs"
+source conf/config
+source conf/globals
 
 rm $logs/*.processed
